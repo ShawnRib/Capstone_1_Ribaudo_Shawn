@@ -1,76 +1,102 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="jumbotron">
-  <h1>Add a product</h1>
-  <p>Add a new product with the form below:</p>
-  <form method="POST">
-      {# This hidden_tag is a CSRF security feature. #}
-      {{ form.hidden_tag() }}
-      {{ form.item_code.label }} {{ form.item_code() }}<br>
-      {{ form.emp_id.label }} {{ form.emp_id() }}<br>
-      {{ form.years.label }} {{ form.years() }}<br>
+<div class="container jumbotron">
+    <div class="row">
+        <h1>Add an employer</h1>
+    </div>
+          <p>Add a new employer with the form below:</p>
+  <div class="row">
+    <form style="width: 100%;" method="POST">
 
-        {{ form.w0.label }} {{ form.w0() }}<br>
-        {{ form.w1.label }} {{ form.w1() }}<br>
-        {{ form.w2.label }} {{ form.w2() }}<br>
-        {{ form.w3.label }} {{ form.w3() }}<br>
-        {{ form.w4.label }} {{ form.w4() }}<br>
-        {{ form.w5.label }} {{ form.w5() }}<br>
-        {{ form.w6.label }} {{ form.w6() }}<br>
-        {{ form.w7.label }} {{ form.w7() }}<br>
-        {{ form.w8.label }} {{ form.w8() }}<br>
-        {{ form.w9.label }} {{ form.w9() }}<br>
-        {{ form.w10.label }} {{ form.w10() }}<br>
-        {{ form.w11.label }} {{ form.w11() }}<br>
-        {{ form.w12.label }} {{ form.w12() }}<br>
-        {{ form.w13.label }} {{ form.w13() }}<br>
-        {{ form.w14.label }} {{ form.w14() }}<br>
-        {{ form.w15.label }} {{ form.w15() }}<br>
-        {{ form.w16.label }} {{ form.w16() }}<br>
-        {{ form.w17.label }} {{ form.w17() }}<br>
-        {{ form.w18.label }} {{ form.w18() }}<br>
-        {{ form.w19.label }} {{ form.w19() }}<br>
-        {{ form.w20.label }} {{ form.w20() }}<br>
-        {{ form.w21.label }} {{ form.w21() }}<br>
-        {{ form.w22.label }} {{ form.w22() }}<br>
-        {{ form.w23.label }} {{ form.w23() }}<br>
-        {{ form.w24.label }} {{ form.w24() }}<br>
-        {{ form.w25.label }} {{ form.w25() }}<br>
-        {{ form.w26.label }} {{ form.w26() }}<br>
-        {{ form.w27.label }} {{ form.w27() }}<br>
-        {{ form.w28.label }} {{ form.w28() }}<br>
-        {{ form.w29.label }} {{ form.w29() }}<br>
-        {{ form.w30.label }} {{ form.w30() }}<br>
-        {{ form.w31.label }} {{ form.w31() }}<br>
-        {{ form.w32.label }} {{ form.w32() }}<br>
-        {{ form.w33.label }} {{ form.w33() }}<br>
-        {{ form.w34.label }} {{ form.w34() }}<br>
-        {{ form.w35.label }} {{ form.w35() }}<br>
-        {{ form.w36.label }} {{ form.w36() }}<br>
-        {{ form.w37.label }} {{ form.w37() }}<br>
-        {{ form.w38.label }} {{ form.w38() }}<br>
-        {{ form.w39.label }} {{ form.w39() }}<br>
-        {{ form.w40.label }} {{ form.w40() }}<br>
-        {{ form.w41.label }} {{ form.w41() }}<br>
-        {{ form.w42.label }} {{ form.w42() }}<br>
-        {{ form.w43.label }} {{ form.w43() }}<br>
-        {{ form.w44.label }} {{ form.w44() }}<br>
-        {{ form.w45.label }} {{ form.w45() }}<br>
-        {{ form.w46.label }} {{ form.w46() }}<br>
-        {{ form.w47.label }} {{ form.w47() }}<br>
-        {{ form.w48.label }} {{ form.w48() }}<br>
-        {{ form.w49.label }} {{ form.w49() }}<br>
-        {{ form.w50.label }} {{ form.w50() }}<br>
-        {{ form.w51.label }} {{ form.w51() }}<br>
+    <div class="row">
+        <div class="col pt-3">
+            {# This hidden_tag is a CSRF security feature. #}
+              {{ form.hidden_tag() }}
+              {{ form.item_code.label }} {{ form.item_code() }}<br>
+              {{ form.emp_id.label }} {{ form.emp_id() }}<br>
+              {{ form.years.label }} {{ form.years() }}<br>
+        </div>
+        <div class="row">
+            <div class="col pt-3">
+                {{ form.w0.label }} {{ form.w0() }}<br>
+                {{ form.w1.label }} {{ form.w1() }}<br>
+                {{ form.w2.label }} {{ form.w2() }}<br>
+                {{ form.w3.label }} {{ form.w3() }}<br>
+                {{ form.w4.label }} {{ form.w4() }}<br>
+                {{ form.w5.label }} {{ form.w5() }}<br>
+                {{ form.w6.label }} {{ form.w6() }}<br>
+                {{ form.w7.label }} {{ form.w7() }}<br>
+                {{ form.w8.label }} {{ form.w8() }}<br>
+                {{ form.w9.label }} {{ form.w9() }}<br>
+                {{ form.w10.label }} {{ form.w10() }}<br>
+            </div>
+            <div class="col pt-3">
+                {{ form.w11.label }} {{ form.w11() }}<br>
+                {{ form.w12.label }} {{ form.w12() }}<br>
+                {{ form.w13.label }} {{ form.w13() }}<br>
+                {{ form.w14.label }} {{ form.w14() }}<br>
+                {{ form.w15.label }} {{ form.w15() }}<br>
+                {{ form.w16.label }} {{ form.w16() }}<br>
+                {{ form.w17.label }} {{ form.w17() }}<br>
+                {{ form.w18.label }} {{ form.w18() }}<br>
+                {{ form.w19.label }} {{ form.w19() }}<br>
+                {{ form.w20.label }} {{ form.w20() }}<br>
+            </div>
+            <div class="col pt-3">
+                {{ form.w21.label }} {{ form.w21() }}<br>
+                {{ form.w22.label }} {{ form.w22() }}<br>
+                {{ form.w23.label }} {{ form.w23() }}<br>
+                {{ form.w24.label }} {{ form.w24() }}<br>
+                {{ form.w25.label }} {{ form.w25() }}<br>
+                {{ form.w26.label }} {{ form.w26() }}<br>
+                {{ form.w27.label }} {{ form.w27() }}<br>
+                {{ form.w28.label }} {{ form.w28() }}<br>
+                {{ form.w29.label }} {{ form.w29() }}<br>
+                {{ form.w30.label }} {{ form.w30() }}<br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col pt-3">
+                {{ form.w31.label }} {{ form.w31() }}<br>
+                {{ form.w32.label }} {{ form.w32() }}<br>
+                {{ form.w33.label }} {{ form.w33() }}<br>
+                {{ form.w34.label }} {{ form.w34() }}<br>
+                {{ form.w35.label }} {{ form.w35() }}<br>
+                {{ form.w36.label }} {{ form.w36() }}<br>
+                {{ form.w37.label }} {{ form.w37() }}<br>
+                {{ form.w38.label }} {{ form.w38() }}<br>
+                {{ form.w39.label }} {{ form.w39() }}<br>
+                {{ form.w40.label }} {{ form.w40() }}<br>
+            </div>
+            <div class="col pt-3">
+                {{ form.w41.label }} {{ form.w41() }}<br>
+                {{ form.w42.label }} {{ form.w42() }}<br>
+                {{ form.w43.label }} {{ form.w43() }}<br>
+                {{ form.w44.label }} {{ form.w44() }}<br>
+                {{ form.w45.label }} {{ form.w45() }}<br>
+                {{ form.w46.label }} {{ form.w46() }}<br>
+                {{ form.w47.label }} {{ form.w47() }}<br>
+                {{ form.w48.label }} {{ form.w48() }}<br>
+                {{ form.w49.label }} {{ form.w49() }}<br>
+                {{ form.w50.label }} {{ form.w50() }}<br>
+                {{ form.w51.label }} {{ form.w51() }}<br>
+            </div>
 
 
-      {{ form.submit() }}
+        </div>
+    </div>
+    <div class="row text-center">
+        {{ form.submit() }}
+    </div>
 
-      {% for field, errors in form.errors.items() %}
-           <small class="form-text text-muted ">
-        {{ ', '.join(errors) }}
-            </small>
-      {% endfor %}
-  </form>
-</div>
+        {% for field, errors in form.errors.items() %}
+            <div class="p-3 mb-2 bg-warning text-dark form-text text-muted">
+            {{ ', '.join(errors) }}
+            </div>
+        {% endfor %}
+
+
+      </form>
+    </div>
+  </div>
 {% endblock %}

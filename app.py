@@ -222,13 +222,15 @@ def add_employers():
         last_name = form.last_name.data
         region = form.region.data
         pay_grade = form.pay_grade.data
-        # Add new employer to database
-        new_employer = Employers(emp_id,first_name, last_name, region, pay_grade)
-        print(new_employer)
-        db.session.add(new_employer)
-        db.session.commit()
-
-        #return redirect(url_for('list_pup'))
+        try:
+            # Add new employer to database
+            new_employer = Employers(emp_id,first_name, last_name, region, pay_grade)
+            print(new_employer)
+            db.session.add(new_employer)
+            db.session.commit()
+            return redirect(url_for('employers_list'))
+        except:
+            return redirect(url_for('error_detail'))
 
     return render_template('add_employers.html',form=form)
 
@@ -250,7 +252,7 @@ def add_products():
             new_product = Product_Codes(prod_code,prod_name, url, manufacturer, ext_service_plan, warranty_price)
             db.session.add(new_product)
             db.session.commit()
-            #return redirect(url_for('list_pup'))
+            return redirect(url_for('products_list'))
         except:
             return redirect(url_for('error_detail'))
 
@@ -318,20 +320,52 @@ def add_sales_quantities():
         w50 = form.w50.data
         w51 = form.w51.data
         # Add new product to database
-        new_sales = Sale_Quantities(item_code, emp_id, years, w0, w1,w2,w3,w4,w5,w6,w7,w8,w9,w10,w11,w12,w13,w14,w15,w16,w17,w18,w19,w20,w21,w22,w23,w24,w25,w26,w27,w28,w29,w30,w31,w32,w33,w34,w35,w36,w37,w38,w39,w40,w41,w42,w43,w44,w45,w46,w47,w48,w49,w50,w51)
-        print(new_sales)
-        db.session.add(new_sales)
-        db.session.commit()
-
-        #return redirect(url_for('list_pup'))
+        try:
+            new_sales = Sale_Quantities(item_code, emp_id, years, w0, w1,w2,w3,w4,w5,w6,w7,w8,w9,w10,w11,w12,w13,w14,w15,w16,w17,w18,w19,w20,w21,w22,w23,w24,w25,w26,w27,w28,w29,w30,w31,w32,w33,w34,w35,w36,w37,w38,w39,w40,w41,w42,w43,w44,w45,w46,w47,w48,w49,w50,w51)
+            print(new_sales)
+            db.session.add(new_sales)
+            db.session.commit()
+            return redirect(url_for('sales_list'))
+        except:
+            return redirect(url_for('error_detail'))
 
     return render_template('add_sales_quantities.html',form=form)
 
 
+@app.route('/sales_list')
+def sales_list():
+    #connect the database and pull sales from the sales_quantities table
+    con = sq.create_engine('mysql+pymysql://root:SQL5Data@localhost/TractorTEK')
+    df_sales = pd.read_sql('sales_quantities', con)
+    print(df_sales)
+    df_size = len(df_sales)
+    return render_template('sales_list.html', df_sales=df_sales, df_size=df_size)
+
+
+@app.route('/employers_list')
+def employers_list():
+    #connect the database and pull sales from the sales_quantities table
+    con = sq.create_engine('mysql+pymysql://root:SQL5Data@localhost/TractorTEK')
+    df_employers= pd.read_sql('employers', con)
+    print(df_employers)
+    df_size = len(df_employers)
+    return render_template('employers_list.html', df_employers=df_employers, df_size=df_size)
+
+@app.route('/products_list')
+def products_list():
+    #connect the database and pull sales from the sales_quantities table
+    con = sq.create_engine('mysql+pymysql://root:SQL5Data@localhost/TractorTEK')
+    df_product = pd.read_sql('product_codes', con)
+    print(df_product)
+    df_size = len(df_product)
+    return render_template('products_list.html', df_product=df_product, df_size=df_size)
+
+#if the database got an error for various of reason, it will go to an error_detail page.
 @app.route('/error_detail', methods=['GET', 'POST'])
 def error_detail():
     return render_template('error_detail.html')
 
+#404 page
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404

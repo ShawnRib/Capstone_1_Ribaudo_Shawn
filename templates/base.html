@@ -9,20 +9,41 @@
 
     <title>Capstone Project</title>
   </head>
+  <style>
+      .header_table{
+          position: sticky;
+          top: 0;
+          background: whitesmoke;
+      }
+      .form{
+          width: 100% !important;
+          max-width: 1200px;
+      }
+      .nav-item:hover{
+          text-decoration: underline;
+          text-weight: bold;
+      }
+      body{
+         background: #e9ecef
+      }
+  </style>
   <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-    <div class="navbar-nav">
+    <div class="navbar-nav container">
         <a class="nav-item nav-link" href="{{ url_for('index') }}">Home</a>
         <a class="nav-item nav-link" href="{{ url_for('add_employers') }}">Add Employers</a>
         <a class="nav-item nav-link" href="{{ url_for('add_products') }}">Add Products</a>
-         <a class="nav-item nav-link" href="{{ url_for('add_sales_quantities') }}">Add sales quantities</a>
+        <a class="nav-item nav-link" href="{{ url_for('add_sales_quantities') }}">Add sales quantities</a>
+        <a class="nav-item nav-link" href="{{ url_for('sales_list') }}">Sales Quantities List</a>
+        <a class="nav-item nav-link" href="{{ url_for('employers_list') }}">Employers List</a>
+        <a class="nav-item nav-link" href="{{ url_for('products_list') }}">Products List</a>
 
     </div>
 
 </nav>
-
+    <div class="mt-4"></div>
     {% block content %}
 
     {% endblock %}
