@@ -20,7 +20,7 @@ Mako==1.0.7
 MarkupSafe==1.1.1
 oauth2==1.9.0.post1
 oauthlib==2.0.7
-python-dateutil==2.7.2
+python-dateutil==2.8.2
 python-editor==1.0.3
 requests==2.18.4
 requests-oauthlib==0.8.0
@@ -32,3 +32,17 @@ URLObject==2.4.3
 Werkzeug==0.14.1
 wincertstore==0.2
 WTForms==2.1
+pip==21.0.1
+wheel==0.36.2
+pytz==2021.3
+colorama==0.4.4
+mysql-connector-python==8.0.28
+numpy==1.19.5
+setuptools==54.2.0
+panda==0.3.1
+protobuf==3.19.4
+pandas==1.1.5
+certifi==2021.10.8
+greenlet==1.1.2
+pyparsing==3.0.7
+zipp==3.6.0
