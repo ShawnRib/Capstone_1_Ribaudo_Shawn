@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="jumbotron">
-  <h1>Welcome to our Adoption Page</h1>
-  <p>Please select one of the links from the nav bar.</p>
+<div class="row">
+    <div class="col text-center my-auto">
+        <h1>Welcome to TekTracker.</h1>
+        <p>Please go to a specific page to add information to the table or see a list.</p>
+    </div>
+    <div class="col">
+        <img src="{{ url_for('static', filename='tractor.jpg')}}" class="img-fluid" alt="tractor image">
+    </div>
 </div>
 {% endblock %}

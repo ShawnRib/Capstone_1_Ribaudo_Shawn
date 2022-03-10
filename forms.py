@@ -3,7 +3,9 @@ from wtforms import IntegerField, SubmitField, StringField, SelectField
 from flask_sqlalchemy import SQLAlchemy
 from wtforms.validators import InputRequired, ValidationError, DataRequired, Length, number_range
 
+#note datarequired give a warning message if the input is empty. Also, none of the number can go below negative.
 
+#add employers form
 class AddEmployersForm(FlaskForm):
 
     emp_id = StringField('What are the new employer id?', [DataRequired('Employer id is missing')])
@@ -13,6 +15,7 @@ class AddEmployersForm(FlaskForm):
     pay_grade = StringField('Pay Grade', [DataRequired('Pay Grade is missing')])
     submit = SubmitField('Add a employer')
 
+#add products form
 class AddProductForm(FlaskForm):
 
     prod_code= StringField('What is the code of this new product?', [DataRequired('The product code is missing')])
@@ -23,12 +26,14 @@ class AddProductForm(FlaskForm):
     warranty_price = IntegerField('What are the warranty price', [DataRequired('Warranty Price is missing'), number_range(min=0, message='Warranty price can not be negative.')])
     submit = SubmitField('Add a product')
 
+#add sales form
 class AddSalesQuantitiesForm(FlaskForm):
     item_code = StringField('Product Code', [DataRequired('Product code is missing')])
     emp_id = StringField('Who made those sales? Type thier emp_id', [DataRequired('Please enter the employment id.')])
     years = IntegerField('Which year?', [InputRequired('Year is missing'), number_range(min=2019, message='Year can not be below 2019')])
 
     #week 0 - 51
+    #note: Default is 0.
     w0 = IntegerField('Week 0', [InputRequired('Week 0 can not be blank'),
                                  number_range(min=0, message='Week 0 can not have a value below 0')], default=0)
     w1 = IntegerField('Week 1', [InputRequired('Week 1 can not be blank'),
@@ -134,10 +139,5 @@ class AddSalesQuantitiesForm(FlaskForm):
     w51 = IntegerField('Week 51', [InputRequired('Week 51 can not be blank'),
                                    number_range(min=0, message='Week 51 can not have a value below 0')], default=0)
 
-
     submit = SubmitField('Add sales quantities')
 
-class DelForm(FlaskForm):
-
-    id = IntegerField('Id Number of Puppy to Remove:')
-    submit = SubmitField('Remove Puppy')
