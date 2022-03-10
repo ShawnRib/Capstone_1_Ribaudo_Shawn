@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+  <h1>Add a product</h1>
+  <p>Add a new product with the form below:</p>
+  <form method="POST">
+      {# This hidden_tag is a CSRF security feature. #}
+      {{ form.hidden_tag() }}
+      {{ form.prod_name.label }} {{ form.prod_name() }}<br>
+      {{ form.prod_code.label }} {{ form.prod_code() }}<br>
+      {{ form.url.label }} {{ form.url() }}<br>
+      {{ form.manufacturer.label }} {{ form.manufacturer() }}<br>
+      {{ form.ext_service_plan.label }} {{ form.ext_service_plan() }}<br>
+      {{ form.warranty_price.label }} {{ form.warranty_price() }}<br>
+      {{ form.submit() }}
+  </form>
+</div>
+{% endblock %}
